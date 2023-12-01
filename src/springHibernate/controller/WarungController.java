@@ -42,10 +42,10 @@ public class WarungController {
      
      public void saveMahasiswa () {
         Warung warung = new Warung();
-        warung.setNpm(this.warungView.getIdBarang().getText());
-        warung.setNama(this.warungView.getNamaBarang().getText());
-        warung.setKelas(this.warungView.getHargaBarang().getText());
-        warung.setAlamat(this.warungView.getStokBarang().getText());
+        warung.setIdBarang(this.warungView.getIdBarang().getText());
+        warung.setNamaBarang(this.warungView.getNamaBarang().getText());
+        warung.setHargaBarang(Integer.parseInt(this.warungView.getHargaBarang().getText()));
+        warung.setStokBarang(Integer.parseInt(this.warungView.getStokBarang().getText()));
         App.getMahasiswaService().save(warung);
         JOptionPane.showMessageDialog(null, "Data berhasil disimpan", "info", JOptionPane.INFORMATION_MESSAGE);
         clear();
@@ -54,10 +54,10 @@ public class WarungController {
      
     public void updateMahasiswa(){
         Warung warung = new Warung();
-        warung.setNpm(this.warungView.getIdBarang().getText());
-        warung.setNama(this.warungView.getNamaBarang().getText());
-        warung.setKelas(this.warungView.getHargaBarang().getText());
-        warung.setAlamat(this.warungView.getStokBarang().getText());
+        warung.setIdBarang(this.warungView.getIdBarang().getText());
+        warung.setNamaBarang(this.warungView.getNamaBarang().getText());
+        warung.setHargaBarang(Integer.parseInt(this.warungView.getHargaBarang().getText()));
+        warung.setStokBarang(Integer.parseInt(this.warungView.getStokBarang().getText()));
         App.getMahasiswaService().update(warung);
         JOptionPane.showMessageDialog(null, "Data berhasil diedit", "info", JOptionPane.INFORMATION_MESSAGE);
         clear();
@@ -65,14 +65,14 @@ public class WarungController {
     }
     
     public void deleteMahasiswa(){
-        if(this.warungView.getNpm().getText() == null){
+        if(this.warungView.getIdBarang().getText() == null){
             JOptionPane.showMessageDialog(null, "Mahasiswa belum dipilih", "error", JOptionPane.ERROR_MESSAGE);
         }else{
-            Warung mahasiswa = new Warung();
-            mahasiswa.setNpm(this.warungView.getNpm().getText());
+            Warung warung = new Warung();
+            warung.setIdBarang(this.warungView.getIdBarang().getText());
             int pilih = JOptionPane.showConfirmDialog(null, "Apakah data ingin dihapus?", "Warning", JOptionPane.YES_NO_OPTION);
             if(pilih == JOptionPane.YES_OPTION){
-                App.getMahasiswaService().delete(mahasiswa);
+                App.getMahasiswaService().delete(warung);
                 JOptionPane.showMessageDialog(null, "Data berhasil dihapus", "info", JOptionPane.INFORMATION_MESSAGE);
                 clear();
                 tampilData();

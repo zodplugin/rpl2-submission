@@ -24,7 +24,7 @@ import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import net.sf.jasperreports.view.JasperViewer;
 
 public class WarungView extends javax.swing.JFrame {
-    private final WarungController mahasiswaController = new WarungController(this);
+    private final WarungController warungController = new WarungController(this);
     Connection c;
     
     JasperReport JasRep;
@@ -37,7 +37,7 @@ public class WarungView extends javax.swing.JFrame {
      */
     public WarungView() {
         initComponents();
-        mahasiswaController.tampilData();
+        warungController.tampilData();
         try {
             c = (Connection) koneksi.connection();
         } catch (SQLException ex) {
@@ -54,10 +54,6 @@ public class WarungView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        simpan = new javax.swing.JButton();
-        update = new javax.swing.JButton();
-        hapus = new javax.swing.JButton();
-        print = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         idbarang = new javax.swing.JTextField();
@@ -72,34 +68,6 @@ public class WarungView extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabel = new javax.swing.JTable();
-
-        simpan.setText("Simpan");
-        simpan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                simpanActionPerformed(evt);
-            }
-        });
-
-        update.setText("Ubah");
-        update.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateActionPerformed(evt);
-            }
-        });
-
-        hapus.setText("Hapus");
-        hapus.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                hapusActionPerformed(evt);
-            }
-        });
-
-        print.setText("Print");
-        print.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                printActionPerformed(evt);
-            }
-        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(51, 153, 255));
@@ -251,22 +219,25 @@ public class WarungView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void simpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simpanActionPerformed
-        mahasiswaController.saveMahasiswa();
-    }//GEN-LAST:event_simpanActionPerformed
+    private void btn_ubahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ubahActionPerformed
+        // TODO add your handling code here:
+        warungController.updateBarang();
+    }//GEN-LAST:event_btn_ubahActionPerformed
 
-    private void updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateActionPerformed
-        mahasiswaController.updateMahasiswa();
-    }//GEN-LAST:event_updateActionPerformed
+    private void btn_simpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_simpanActionPerformed
+        // TODO add your handling code here:
+        warungController.saveBarang();
+    }//GEN-LAST:event_btn_simpanActionPerformed
 
-    private void hapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hapusActionPerformed
-        mahasiswaController.deleteMahasiswa();
-    }//GEN-LAST:event_hapusActionPerformed
+    private void btn_hapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_hapusActionPerformed
+        // TODO add your handling code here:
+        warungController.deleteBarang();
+    }//GEN-LAST:event_btn_hapusActionPerformed
 
-    private void printActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printActionPerformed
+    private void btn_cetakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cetakActionPerformed
         // TODO add your handling code here:
         try{
-            File report = new File("src/reportMahasiswa.jrxml");
+            File report = new File("src/reportWarung.jrxml");
             JasDes = JRXmlLoader.load(report);
             param.clear();
             JasRep = JasperCompileManager.compileReport(JasDes);
@@ -275,35 +246,29 @@ public class WarungView extends javax.swing.JFrame {
         } catch (JRException ex) {
             JOptionPane.showMessageDialog(null,ex);
         }
-    }//GEN-LAST:event_printActionPerformed
-
-    private void btn_ubahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ubahActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_ubahActionPerformed
-
-    private void btn_simpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_simpanActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_simpanActionPerformed
-
-    private void btn_hapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_hapusActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_hapusActionPerformed
-
-    private void btn_cetakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cetakActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_btn_cetakActionPerformed
 
     private void tabelMouseClicked(java.awt.event.MouseEvent evt){
-        mahasiswaController.show();
+        warungController.show();
     }
     
     public JTable getTabel(){
         return tabel;
     }
     
-    public JTextField getNpm(){
+    public JTextField getIdBarang(){
         return idbarang;
     }
+    public JTextField getNamaBarang(){
+        return namabarang;
+    }public JTextField getHargaBarang(){
+        return hargabarang;
+    }public JTextField getStokBarang(){
+        return stokbarang;
+    }
+    
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -345,7 +310,6 @@ public class WarungView extends javax.swing.JFrame {
     private rojerusan.RSMaterialButtonRectangle btn_hapus;
     private rojerusan.RSMaterialButtonRectangle btn_simpan;
     private rojerusan.RSMaterialButtonRectangle btn_ubah;
-    private javax.swing.JButton hapus;
     private javax.swing.JTextField hargabarang;
     private javax.swing.JTextField idbarang;
     private javax.swing.JLabel jLabel1;
@@ -354,10 +318,7 @@ public class WarungView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField namabarang;
-    private javax.swing.JButton print;
-    private javax.swing.JButton simpan;
     private javax.swing.JTextField stokbarang;
     private javax.swing.JTable tabel;
-    private javax.swing.JButton update;
     // End of variables declaration//GEN-END:variables
 }

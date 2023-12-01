@@ -16,7 +16,7 @@ public class App {
       new WarungView().setVisible(true);
     }
     
-    public static WarungService getMahasiswaService(){
-        return (WarungService) applicationContext.getBean("MahasiswaService");
+    public static WarungService getWarungService(){
+        return (WarungService) applicationContext.getBean("WarungService");
     }
 }

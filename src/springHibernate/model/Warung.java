@@ -10,30 +10,30 @@ import javax.persistence.Table;
  * @author RizkyBagaskara
  */
 @Entity
-@Table(name = "tb_mahasiswa")
+@Table(name = "tb_warung_yadi")
 public class Warung implements Serializable{
     @Id
-    @Column(name = "npm", length = 8)
-    private String npm;
+    @Column(name = "id_barang", length = 5)
+    private String idbarang;
     
-    @Column(name = "nama", length = 50)
-    private String nama;
+    @Column(name = "nama_barang", length = 30)
+    private String namabarang;
     
-    @Column(name = "kelas", length = 10)
-    private String kelas;
+    @Column(name = "harga_barang", length = 10)
+    private Integer hargabarang;
     
-    @Column(name = "alamat", length = 100)
-    private String alamat;
+    @Column(name = "stok_barang", length = 3)
+    private Integer stokbarang;
     
-    public String getNpm() {return npm;}
-    public void setNpm(String npm) {this.npm = npm;}
+    public String getIdBarang() {return idbarang;}
+    public void setIdBarang(String idbarang) {this.idbarang = idbarang;}
     
-    public String getNama() {return nama;}
-    public void setNama(String nama) {this.nama = nama;}
+    public String getNamaBarang() {return namabarang;}
+    public void setNamaBarang(String namabarang) {this.namabarang = namabarang;}
     
-    public String getKelas() {return kelas;}
-    public void setKelas(String kelas) {this.kelas = kelas;}
+    public Integer getHargaBarang() {return hargabarang;}
+    public void setHargaBarang(Integer hargabarang) {this.hargabarang = hargabarang;}
     
-    public String getAlamat() {return alamat;}
-    public void setAlamat(String alamat) {this.alamat = alamat;}
+    public Integer getStokBarang() {return stokbarang;}
+    public void setStokBarang(Integer stokbarang) {this.stokbarang = stokbarang;}
 }

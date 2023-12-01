@@ -8,16 +8,16 @@ import javax.swing.table.AbstractTableModel;
  * @author RizkyBagaskara
  */
 public class WarungTableModel extends AbstractTableModel{
-    private List<Warung> mahasiswas = new ArrayList<>();
-    private final String HEADER[] = {"IdBarang", "Nama", "Kelas", "Alamat"};
+    private List<Warung> warungs = new ArrayList<>();
+    private final String HEADER[] = {"IdBarang", "NamaBarang", "HargaBarang", "StokBarang"};
     
-    public WarungTableModel(List<Warung> mahasiswas){
-        this.mahasiswas = mahasiswas;
+    public WarungTableModel(List<Warung> warungs){
+        this.warungs = warungs;
     }
     
     @Override
     public int getRowCount(){
-        return mahasiswas.size();
+        return warungs.size();
     }
     
     @Override
@@ -32,17 +32,17 @@ public class WarungTableModel extends AbstractTableModel{
     
     @Override
     public Object getValueAt(int rowIndex, int columnIndex){
-        Warung mahasiswa = mahasiswas.get(rowIndex);
+        Warung warung = warungs.get(rowIndex);
         
         switch(columnIndex) {
             case 0:
-                return mahasiswa.getNpm();
+                return warung.getIdBarang();
             case 1:
-                return mahasiswa.getNama();
+                return warung.getNamaBarang();
             case 2:
-                return mahasiswa.getKelas();
+                return warung.getHargaBarang();
             case 3:
-                return mahasiswa.getAlamat();
+                return warung.getStokBarang();
             default:
                 return null;
         }

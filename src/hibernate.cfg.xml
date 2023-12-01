@@ -48,6 +48,6 @@ Contributor(s):
     <property name="hibernate.hbm2ddl.auto">update</property>
     <property name="hibernate.show_sql">true</property>
     <property name="hibernate.format_sql">true</property>
-    <mapping class="springHibernate.model.Mahasiswa"/>
+    <mapping class="springHibernate.model.Warung"/>
   </session-factory>
 </hibernate-configuration>

@@ -40,18 +40,18 @@
 			<frame>
 				<reportElement mode="Opaque" x="0" y="0" width="451" height="95" backcolor="#000000" uuid="4a482344-18fc-4fd1-b540-e5715ebbd52f"/>
 				<staticText>
-					<reportElement style="Title" x="0" y="0" width="370" height="66" uuid="306c40f9-75ed-4d15-be37-8898db3172b1"/>
+					<reportElement style="Title" x="36" y="0" width="370" height="66" uuid="306c40f9-75ed-4d15-be37-8898db3172b1"/>
 					<textElement>
 						<font isBold="false"/>
 					</textElement>
-					<text><![CDATA[Data Mahasiswa]]></text>
+					<text><![CDATA[Rekap Barang]]></text>
 				</staticText>
 				<staticText>
 					<reportElement style="SubTitle" x="157" y="66" width="249" height="29" uuid="6f04c82a-104a-481d-9931-1cf54dbfae12"/>
 					<textElement>
 						<font size="22" isBold="false"/>
 					</textElement>
-					<text><![CDATA[Gundar]]></text>
+					<text><![CDATA[Warung Yadi]]></text>
 				</staticText>
 			</frame>
 			<frame>

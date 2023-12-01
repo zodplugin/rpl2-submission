@@ -1,47 +1,47 @@
 package springHibernate.service;
-import springHibernate.model.Mahasiswa;
-import springHibernate.dao.MahasiswaDao;
+import springHibernate.model.Warung;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import springHibernate.dao.WarungDao;
 /**
  *
  * @author RizkyBagaskara
  */
 @Service("MahasiswaService")
 @Transactional(readOnly = true)
-public class MahasiswaServiceImpl implements MahasiswaService{
+public class WarungServiceImpl implements WarungService{
     @Autowired
-    private MahasiswaDao mahasiswaDao;
+    private WarungDao mahasiswaDao;
     
     @Transactional
     @Override
-    public void save(Mahasiswa mahasiswa){
+    public void save(Warung mahasiswa){
         mahasiswaDao.save(mahasiswa);
     }
     
     @Transactional
     @Override
-    public void update(Mahasiswa mahasiswa){
+    public void update(Warung mahasiswa){
         mahasiswaDao.update(mahasiswa);
     }
     
     @Transactional
     @Override
-    public void delete(Mahasiswa mahasiswa){
+    public void delete(Warung mahasiswa){
         mahasiswaDao.delete(mahasiswa);
     }
     
     @Transactional
     @Override
-    public Mahasiswa getMahasiswa(String npm){
+    public Warung getMahasiswa(String npm){
         return mahasiswaDao.getMahasiswa(npm);
     }
     
     @Transactional
     @Override
-    public List<Mahasiswa> getMahasiswas(){
+    public List<Warung> getMahasiswas(){
         return mahasiswaDao.getMahasiswas();
     }
 }

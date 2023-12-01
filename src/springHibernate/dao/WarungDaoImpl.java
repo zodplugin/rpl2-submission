@@ -1,5 +1,5 @@
 package springHibernate.dao;
-import springHibernate.model.Mahasiswa;
+import springHibernate.model.Warung;
 import java.util.List;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,32 +9,32 @@ import org.springframework.stereotype.Repository;
  * @author RizkyBagaskara
  */
 @Repository
-public class MahasiswaDaoImpl implements MahasiswaDao {
+public class WarungDaoImpl implements WarungDao {
     @Autowired
     private SessionFactory sessionFactory;
     
     @Override
-    public void save(Mahasiswa mahasiswa) {
+    public void save(Warung mahasiswa) {
         sessionFactory.getCurrentSession().save(mahasiswa);
     }
     
     @Override
-    public void update(Mahasiswa mahasiswa) {
+    public void update(Warung mahasiswa) {
         sessionFactory.getCurrentSession().update(mahasiswa);
     }
     
     @Override
-    public void delete(Mahasiswa mahasiswa) {
+    public void delete(Warung mahasiswa) {
         sessionFactory.getCurrentSession().delete(mahasiswa);
     }
     
     @Override
-    public Mahasiswa getMahasiswa(String npm){
-        return (Mahasiswa) sessionFactory.getCurrentSession().get(Mahasiswa.class, npm);
+    public Warung getMahasiswa(String npm){
+        return (Warung) sessionFactory.getCurrentSession().get(Warung.class, npm);
     }
     
     @Override
-    public List<Mahasiswa> getMahasiswas(){
-        return sessionFactory.getCurrentSession().createCriteria(Mahasiswa.class).list();
+    public List<Warung> getMahasiswas(){
+        return sessionFactory.getCurrentSession().createCriteria(Warung.class).list();
     }
 }

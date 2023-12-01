@@ -11,7 +11,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "tb_mahasiswa")
-public class Mahasiswa implements Serializable{
+public class Warung implements Serializable{
     @Id
     @Column(name = "npm", length = 8)
     private String npm;

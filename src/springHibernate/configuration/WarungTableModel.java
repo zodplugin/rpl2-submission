@@ -1,5 +1,5 @@
 package springHibernate.configuration;
-import springHibernate.model.Mahasiswa;
+import springHibernate.model.Warung;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
@@ -7,11 +7,11 @@ import javax.swing.table.AbstractTableModel;
  *
  * @author RizkyBagaskara
  */
-public class MahasiswaTableModel extends AbstractTableModel{
-    private List<Mahasiswa> mahasiswas = new ArrayList<>();
-    private final String HEADER[] = {"NPM", "Nama", "Kelas", "Alamat"};
+public class WarungTableModel extends AbstractTableModel{
+    private List<Warung> mahasiswas = new ArrayList<>();
+    private final String HEADER[] = {"IdBarang", "Nama", "Kelas", "Alamat"};
     
-    public MahasiswaTableModel(List<Mahasiswa> mahasiswas){
+    public WarungTableModel(List<Warung> mahasiswas){
         this.mahasiswas = mahasiswas;
     }
     
@@ -32,7 +32,7 @@ public class MahasiswaTableModel extends AbstractTableModel{
     
     @Override
     public Object getValueAt(int rowIndex, int columnIndex){
-        Mahasiswa mahasiswa = mahasiswas.get(rowIndex);
+        Warung mahasiswa = mahasiswas.get(rowIndex);
         
         switch(columnIndex) {
             case 0:

@@ -1,9 +1,9 @@
 package springHibernate;
 
-import springHibernate.service.MahasiswaService;
-import springHibernate.view.MahasiswaView;
+import springHibernate.view.WarungView;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import springHibernate.service.WarungService;
 /**
  *
  * @author RizkyBagaskara
@@ -13,10 +13,10 @@ public class App {
     
     public static void main(String[] args) {
       applicationContext = new ClassPathXmlApplicationContext("classpath:spring-configuration.xml");
-      new MahasiswaView().setVisible(true);
+      new WarungView().setVisible(true);
     }
     
-    public static MahasiswaService getMahasiswaService(){
-        return (MahasiswaService) applicationContext.getBean("MahasiswaService");
+    public static WarungService getMahasiswaService(){
+        return (WarungService) applicationContext.getBean("MahasiswaService");
     }
 }

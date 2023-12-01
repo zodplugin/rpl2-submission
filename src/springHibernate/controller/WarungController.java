@@ -10,66 +10,66 @@ import springHibernate.view.WarungView;
  * @author RizkyBagaskara
  */
 public class WarungController {
-    private final WarungView mahasiswaView;
+    private final WarungView warungView;
     private WarungTableModel mahasiswaTableModel;
     private List<Warung> mahasiswas;
     
     public WarungController(WarungView mahasiswaView){
-        this.mahasiswaView = mahasiswaView;
+        this.warungView = mahasiswaView;
     }
     
     public void tampilData() {
         mahasiswas = App.getMahasiswaService().getMahasiswas();
         mahasiswaTableModel = new WarungTableModel(mahasiswas);
-        this.mahasiswaView.getTabel().setModel(mahasiswaTableModel);
+        this.warungView.getTabel().setModel(mahasiswaTableModel);
     }
     
     public void show() {
-        int index = this.mahasiswaView.getTabel().getSelectedRow();
+        int index = this.warungView.getTabel().getSelectedRow();
 
-        this.mahasiswaView.getNpm().setText(String.valueOf(this.mahasiswaView.getTabel().getValueAt(index, 0)));
-        this.mahasiswaView.getNama().setText(String.valueOf(this.mahasiswaView.getTabel().getValueAt(index, 1)));
-        this.mahasiswaView.getKelas().setText(String.valueOf(this.mahasiswaView.getTabel().getValueAt(index, 2)));
-        this.mahasiswaView.getAlamat().setText(String.valueOf(this.mahasiswaView.getTabel().getValueAt(index, 3)));
+        this.warungView.getIdBarang().setText(String.valueOf(this.warungView.getTabel().getValueAt(index, 0)));
+        this.warungView.getNamaBarang().setText(String.valueOf(this.warungView.getTabel().getValueAt(index, 1)));
+        this.warungView.getHargaBarang().setText(String.valueOf(this.warungView.getTabel().getValueAt(index, 2)));
+        this.warungView.getStokBarang().setText(String.valueOf(this.warungView.getTabel().getValueAt(index, 3)));
     }
     
      public void clear() {
-        this.mahasiswaView.getNpm().setText("");
-        this.mahasiswaView.getNama().setText("");
-        this.mahasiswaView.getKelas().setText("");
-        this.mahasiswaView.getAlamat().setText("");
+        this.warungView.getIdBarang().setText("");
+        this.warungView.getNamaBarang().setText("");
+        this.warungView.getHargaBarang().setText("");
+        this.warungView.getStokBarang().setText("");
     }
      
      public void saveMahasiswa () {
-        Warung mahasiswa = new Warung();
-        mahasiswa.setNpm(this.mahasiswaView.getNpm().getText());
-        mahasiswa.setNama(this.mahasiswaView.getNama().getText());
-        mahasiswa.setKelas(this.mahasiswaView.getKelas().getText());
-        mahasiswa.setAlamat(this.mahasiswaView.getAlamat().getText());
-        App.getMahasiswaService().save(mahasiswa);
+        Warung warung = new Warung();
+        warung.setNpm(this.warungView.getIdBarang().getText());
+        warung.setNama(this.warungView.getNamaBarang().getText());
+        warung.setKelas(this.warungView.getHargaBarang().getText());
+        warung.setAlamat(this.warungView.getStokBarang().getText());
+        App.getMahasiswaService().save(warung);
         JOptionPane.showMessageDialog(null, "Data berhasil disimpan", "info", JOptionPane.INFORMATION_MESSAGE);
         clear();
         tampilData();
     }
      
     public void updateMahasiswa(){
-        Warung mahasiswa = new Warung();
-        mahasiswa.setNpm(this.mahasiswaView.getNpm().getText());
-        mahasiswa.setNama(this.mahasiswaView.getNama().getText());
-        mahasiswa.setKelas(this.mahasiswaView.getKelas().getText());
-        mahasiswa.setAlamat(this.mahasiswaView.getAlamat().getText());
-        App.getMahasiswaService().update(mahasiswa);
+        Warung warung = new Warung();
+        warung.setNpm(this.warungView.getIdBarang().getText());
+        warung.setNama(this.warungView.getNamaBarang().getText());
+        warung.setKelas(this.warungView.getHargaBarang().getText());
+        warung.setAlamat(this.warungView.getStokBarang().getText());
+        App.getMahasiswaService().update(warung);
         JOptionPane.showMessageDialog(null, "Data berhasil diedit", "info", JOptionPane.INFORMATION_MESSAGE);
         clear();
         tampilData();
     }
     
     public void deleteMahasiswa(){
-        if(this.mahasiswaView.getNpm().getText() == null){
+        if(this.warungView.getNpm().getText() == null){
             JOptionPane.showMessageDialog(null, "Mahasiswa belum dipilih", "error", JOptionPane.ERROR_MESSAGE);
         }else{
             Warung mahasiswa = new Warung();
-            mahasiswa.setNpm(this.mahasiswaView.getNpm().getText());
+            mahasiswa.setNpm(this.warungView.getNpm().getText());
             int pilih = JOptionPane.showConfirmDialog(null, "Apakah data ingin dihapus?", "Warning", JOptionPane.YES_NO_OPTION);
             if(pilih == JOptionPane.YES_OPTION){
                 App.getMahasiswaService().delete(mahasiswa);

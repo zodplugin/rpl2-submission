@@ -24,7 +24,7 @@ import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import net.sf.jasperreports.view.JasperViewer;
 
 public class WarungView extends javax.swing.JFrame {
-    private final WarungController mahasiswaController = new WarungController(this);
+    private final WarungController warungController = new WarungController(this);
     Connection c;
     
     JasperReport JasRep;
@@ -37,7 +37,7 @@ public class WarungView extends javax.swing.JFrame {
      */
     public WarungView() {
         initComponents();
-        mahasiswaController.tampilData();
+        warungController.tampilData();
         try {
             c = (Connection) koneksi.connection();
         } catch (SQLException ex) {
@@ -252,15 +252,15 @@ public class WarungView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void simpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simpanActionPerformed
-        mahasiswaController.saveMahasiswa();
+        warungController.saveMahasiswa();
     }//GEN-LAST:event_simpanActionPerformed
 
     private void updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateActionPerformed
-        mahasiswaController.updateMahasiswa();
+        warungController.updateMahasiswa();
     }//GEN-LAST:event_updateActionPerformed
 
     private void hapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hapusActionPerformed
-        mahasiswaController.deleteMahasiswa();
+        warungController.deleteMahasiswa();
     }//GEN-LAST:event_hapusActionPerformed
 
     private void printActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printActionPerformed
@@ -294,16 +294,26 @@ public class WarungView extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_cetakActionPerformed
 
     private void tabelMouseClicked(java.awt.event.MouseEvent evt){
-        mahasiswaController.show();
+        warungController.show();
     }
     
     public JTable getTabel(){
         return tabel;
     }
     
-    public JTextField getNpm(){
+    public JTextField getIdBarang(){
         return idbarang;
     }
+    public JTextField getNamaBarang(){
+        return namabarang;
+    }public JTextField getHargaBarang(){
+        return hargabarang;
+    }public JTextField getStokBarang(){
+        return stokbarang;
+    }
+    
+    
+    
     /**
      * @param args the command line arguments
      */

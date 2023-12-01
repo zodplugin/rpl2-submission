@@ -9,7 +9,7 @@ import springHibernate.dao.WarungDao;
  *
  * @author RizkyBagaskara
  */
-@Service("MahasiswaService")
+@Service("WarungService")
 @Transactional(readOnly = true)
 public class WarungServiceImpl implements WarungService{
     @Autowired

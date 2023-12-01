@@ -11,17 +11,17 @@ import springHibernate.view.WarungView;
  */
 public class WarungController {
     private final WarungView warungView;
-    private WarungTableModel mahasiswaTableModel;
-    private List<Warung> mahasiswas;
+    private WarungTableModel warungTableModel;
+    private List<Warung> warungs;
     
     public WarungController(WarungView mahasiswaView){
         this.warungView = mahasiswaView;
     }
     
     public void tampilData() {
-        mahasiswas = App.getWarungService().getWarungs();
-        mahasiswaTableModel = new WarungTableModel(mahasiswas);
-        this.warungView.getTabel().setModel(mahasiswaTableModel);
+        warungs = App.getWarungService().getWarungs();
+        warungTableModel = new WarungTableModel(warungs);
+        this.warungView.getTabel().setModel(warungTableModel);
     }
     
     public void show() {
@@ -40,7 +40,7 @@ public class WarungController {
         this.warungView.getStokBarang().setText("");
     }
      
-     public void saveMahasiswa () {
+     public void saveBarang () {
         Warung warung = new Warung();
         warung.setIdBarang(this.warungView.getIdBarang().getText());
         warung.setNamaBarang(this.warungView.getNamaBarang().getText());
@@ -52,7 +52,7 @@ public class WarungController {
         tampilData();
     }
      
-    public void updateMahasiswa(){
+    public void updateBarang(){
         Warung warung = new Warung();
         warung.setIdBarang(this.warungView.getIdBarang().getText());
         warung.setNamaBarang(this.warungView.getNamaBarang().getText());
@@ -64,9 +64,9 @@ public class WarungController {
         tampilData();
     }
     
-    public void deleteMahasiswa(){
+    public void deleteBarang(){
         if(this.warungView.getIdBarang().getText() == null){
-            JOptionPane.showMessageDialog(null, "Mahasiswa belum dipilih", "error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Barang belum dipilih", "error", JOptionPane.ERROR_MESSAGE);
         }else{
             Warung warung = new Warung();
             warung.setIdBarang(this.warungView.getIdBarang().getText());

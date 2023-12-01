@@ -19,7 +19,7 @@ public class WarungController {
     }
     
     public void tampilData() {
-        mahasiswas = App.getMahasiswaService().getMahasiswas();
+        mahasiswas = App.getWarungService().getWarungs();
         mahasiswaTableModel = new WarungTableModel(mahasiswas);
         this.warungView.getTabel().setModel(mahasiswaTableModel);
     }
@@ -46,7 +46,7 @@ public class WarungController {
         warung.setNamaBarang(this.warungView.getNamaBarang().getText());
         warung.setHargaBarang(Integer.parseInt(this.warungView.getHargaBarang().getText()));
         warung.setStokBarang(Integer.parseInt(this.warungView.getStokBarang().getText()));
-        App.getMahasiswaService().save(warung);
+        App.getWarungService().save(warung);
         JOptionPane.showMessageDialog(null, "Data berhasil disimpan", "info", JOptionPane.INFORMATION_MESSAGE);
         clear();
         tampilData();
@@ -58,7 +58,7 @@ public class WarungController {
         warung.setNamaBarang(this.warungView.getNamaBarang().getText());
         warung.setHargaBarang(Integer.parseInt(this.warungView.getHargaBarang().getText()));
         warung.setStokBarang(Integer.parseInt(this.warungView.getStokBarang().getText()));
-        App.getMahasiswaService().update(warung);
+        App.getWarungService().update(warung);
         JOptionPane.showMessageDialog(null, "Data berhasil diedit", "info", JOptionPane.INFORMATION_MESSAGE);
         clear();
         tampilData();
@@ -72,7 +72,7 @@ public class WarungController {
             warung.setIdBarang(this.warungView.getIdBarang().getText());
             int pilih = JOptionPane.showConfirmDialog(null, "Apakah data ingin dihapus?", "Warning", JOptionPane.YES_NO_OPTION);
             if(pilih == JOptionPane.YES_OPTION){
-                App.getMahasiswaService().delete(warung);
+                App.getWarungService().delete(warung);
                 JOptionPane.showMessageDialog(null, "Data berhasil dihapus", "info", JOptionPane.INFORMATION_MESSAGE);
                 clear();
                 tampilData();

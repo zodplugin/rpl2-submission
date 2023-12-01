@@ -13,35 +13,35 @@ import springHibernate.dao.WarungDao;
 @Transactional(readOnly = true)
 public class WarungServiceImpl implements WarungService{
     @Autowired
-    private WarungDao mahasiswaDao;
+    private WarungDao warungDao;
     
     @Transactional
     @Override
-    public void save(Warung mahasiswa){
-        mahasiswaDao.save(mahasiswa);
+    public void save(Warung warung){
+        warungDao.save(warung);
     }
     
     @Transactional
     @Override
-    public void update(Warung mahasiswa){
-        mahasiswaDao.update(mahasiswa);
+    public void update(Warung warung){
+        warungDao.update(warung);
     }
     
     @Transactional
     @Override
-    public void delete(Warung mahasiswa){
-        mahasiswaDao.delete(mahasiswa);
+    public void delete(Warung warung){
+        warungDao.delete(warung);
     }
     
     @Transactional
     @Override
-    public Warung getMahasiswa(String npm){
-        return mahasiswaDao.getMahasiswa(npm);
+    public Warung getWarung(String idbarang){
+        return warungDao.getWarung(idbarang);
     }
     
     @Transactional
     @Override
-    public List<Warung> getMahasiswas(){
-        return mahasiswaDao.getMahasiswas();
+    public List<Warung> getWarungs(){
+        return warungDao.getWarungs();
     }
 }

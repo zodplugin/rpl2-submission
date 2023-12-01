@@ -14,27 +14,27 @@ public class WarungDaoImpl implements WarungDao {
     private SessionFactory sessionFactory;
     
     @Override
-    public void save(Warung mahasiswa) {
-        sessionFactory.getCurrentSession().save(mahasiswa);
+    public void save(Warung warung) {
+        sessionFactory.getCurrentSession().save(warung);
     }
     
     @Override
-    public void update(Warung mahasiswa) {
-        sessionFactory.getCurrentSession().update(mahasiswa);
+    public void update(Warung warung) {
+        sessionFactory.getCurrentSession().update(warung);
     }
     
     @Override
-    public void delete(Warung mahasiswa) {
-        sessionFactory.getCurrentSession().delete(mahasiswa);
+    public void delete(Warung warung) {
+        sessionFactory.getCurrentSession().delete(warung);
     }
     
     @Override
-    public Warung getMahasiswa(String npm){
-        return (Warung) sessionFactory.getCurrentSession().get(Warung.class, npm);
+    public Warung getWarung(String idbarang){
+        return (Warung) sessionFactory.getCurrentSession().get(Warung.class, idbarang);
     }
     
     @Override
-    public List<Warung> getMahasiswas(){
+    public List<Warung> getWarungs(){
         return sessionFactory.getCurrentSession().createCriteria(Warung.class).list();
     }
 }
